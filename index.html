@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>网站建设中 | 匠心打磨，即将呈现</title>
+<title>样子懂了</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <script>
@@ -114,7 +114,7 @@
     z-index: 5;
   }
 
-  /* 朱砂印章【修改：加大尺寸，完整容纳竖排两个字】 */
+  /* 朱砂印章：flex 居中方案，竖排文字居中 */
   .seal {
     position: absolute;
     top: 18%;
@@ -126,15 +126,15 @@
     color: #b94133;
     font-family: 'Ma Shan Zheng', serif;
     font-size: 22px;
-    line-height: 1.3;
-    text-align: center;
     border-radius: 4px;
     background: rgba(255, 255, 255, .4);
     box-shadow: 0 6px 18px rgba(185, 65, 51, .3);
     z-index: 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     writing-mode: vertical-rl;
-    letter-spacing: 2px;
-    padding: 4px 0;
+    letter-spacing: 4px;
   }
 
   /* 按钮 */
@@ -212,7 +212,7 @@
 
   @media (max-width: 768px) {
     .moon { width: 180px; height: 180px; top: 10%; }
-    .seal { right: 18%; top: 14%; width: 44px; height: 60px; font-size: 19px; }
+    .seal { right: 18%; top: 14%; width: 44px; height: 60px; font-size: 19px; letter-spacing:3px; }
     .cloud svg { width: 140px; height: 60px; }
     .mountain { height: 48%; }
   }
@@ -277,7 +277,7 @@
   </svg>
 </div>
 
-<div class="seal fade-in">暂启</div>
+<div class="seal fade-in">样子懂了</div>
 
 <main class="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 text-center">
   <h1 class="brush-title fade-in delay-1">网站建设中</h1>
