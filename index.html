@@ -5,36 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>样子懂了</title>
 <meta name="description" content="样子懂了的个人主页：每天要用的入口、正在写的笔记，和一些还没想明白的问题。">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F4F4EF'/%3E%3Cpath d='M6 17c4-5 8-7 10-7s6 2 10 7c-4 5-8 7-10 7s-6-2-10-7z' fill='none' stroke='%2316191C' stroke-width='2'/%3E%3Ccircle cx='16' cy='17' r='3.4' fill='%2316191C'/%3E%3Cpath d='M4 12l13-5' stroke='%23D8F35C' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F1E8D8'/%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%23B23A2E' stroke-width='3.4'/%3E%3Cpath d='M7 16c4-4.5 7.5-6 9-6s5 1.5 9 6c-4 4.5-7.5 6-9 6s-5-1.5-9-6z' fill='none' stroke='%231D1915' stroke-width='1.8'/%3E%3Ccircle cx='16' cy='16.6' r='2.4' fill='%231D1915'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://miaoda.feishu.cn">
 <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap">
 <style>
 :root{
-  --paper:#F4F4EF;
-  --paper-2:#ECEDE5;
-  --paper-3:#E3E4DA;
-  --ink:#16191C;
-  --ink-2:#565F66;
-  --ink-3:#8B918B;
-  --line:#D6D8CE;
-  --line-2:#C2C5B9;
-  --mark:#D8F35C;
-  --mark-ink:#16191C;
-  --hero-fade:.34;
+  --paper:#F1E8D8;
+  --paper-2:#E9DFCB;
+  --paper-3:#DED1B8;
+  --ink:#1D1915;
+  --ink-2:#544B40;
+  --ink-3:#8A7D6C;
+  --line:#DCCDB4;
+  --line-2:#C6B498;
+  --mark:#B23A2E;
+  --mark-ink:#FBF3E4;
+  --seal:#B23A2E;
+  --hero-fade:.42;
   --sans:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
   --serif:"Noto Serif SC","Songti SC","SimSun",Georgia,serif;
 }
 html.night{
-  --paper:#121513;
-  --paper-2:#191D1A;
-  --paper-3:#20261F;
-  --ink:#EDEEE6;
-  --ink-2:#A2A99F;
-  --ink-3:#717970;
-  --line:#2C322A;
-  --line-2:#3A4236;
-  --mark:#D8F35C;
-  --hero-fade:.09;
+  --paper:#15120E;
+  --paper-2:#1C1813;
+  --paper-3:#252019;
+  --ink:#E7DFCF;
+  --ink-2:#B2A794;
+  --ink-3:#847867;
+  --line:#332B22;
+  --line-2:#463B2D;
+  --mark:#D2563F;
+  --mark-ink:#1A1511;
+  --seal:#D2563F;
+  --hero-fade:.08;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
@@ -58,16 +61,30 @@ body{
   inset:-2px 0 0 0;
   z-index:-1;
   pointer-events:none;
-  background-image:url("https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/ROxMbKP2sozaHnxfSADcUBfJnre");
+  background-image:url("https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Nw9tbQa1OofLmlxJcl3cWjojnVd");
   background-size:cover;
-  background-position:left 22%;
+  background-position:left center;
   background-repeat:no-repeat;
   opacity:var(--hero-fade);
   mix-blend-mode:multiply;
-  -webkit-mask-image:linear-gradient(100deg,#000 0,#000 42%,transparent 88%);
-  mask-image:linear-gradient(100deg,#000 0,#000 42%,transparent 88%);
+  -webkit-mask-image:linear-gradient(100deg,#000 0,#000 55%,transparent 92%);
+  mask-image:linear-gradient(100deg,#000 0,#000 55%,transparent 92%);
   transition:opacity .35s;
 }
+/* 朱丝栏（信笺竖线） */
+.hero::after{
+  content:"";
+  position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:repeating-linear-gradient(90deg,transparent 0 47px,rgba(178,58,46,.13) 47px 48px);
+  -webkit-mask-image:linear-gradient(95deg,transparent 0,#000 20%,#000 50%,transparent 80%);
+  mask-image:linear-gradient(95deg,transparent 0,#000 20%,#000 50%,transparent 80%);
+}
+/* 装裱内框 */
+body::after{
+  content:"";position:fixed;inset:10px;z-index:58;pointer-events:none;
+  border:1px solid var(--line-2);
+}
+@media (max-width:520px){body::after{inset:6px}}
 main,header,footer{position:relative;z-index:1}
 .wrap{width:calc(100% - 40px);max-width:1060px;margin:0 auto}
 
@@ -116,26 +133,37 @@ h1{
   letter-spacing:.01em;
   margin:0 0 20px;
 }
-h1 em{font-style:normal;background-image:linear-gradient(var(--mark),var(--mark));background-repeat:no-repeat;background-size:100% 46%;background-position:0 76%;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:0 .06em}
+h1 em{font-style:normal;background-image:linear-gradient(var(--mark),var(--mark));background-repeat:no-repeat;background-size:100% 3px;background-position:0 94%;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:0 .08em}
 .lede{
-  max-width:34em;color:var(--ink-2);font-size:16px;line-height:1.9;
-  font-weight:300;margin:0 0 30px;
+  max-width:33em;color:var(--ink-2);font-family:var(--serif);
+  font-size:16px;line-height:2;letter-spacing:.01em;
+  font-weight:400;margin:0 0 30px;
 }
 .lede b{font-weight:500;color:var(--ink)}
 .id-card{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
 .avatar{
-  width:78px;height:78px;border-radius:50%;object-fit:cover;
-  border:1px solid var(--line-2);background:var(--paper-2);
+  width:82px;height:82px;border-radius:2px;object-fit:cover;
+  background:transparent;transform:rotate(-1.5deg);
 }
-@media (min-width:780px){.avatar{width:92px;height:92px}}
+@media (min-width:780px){.avatar{width:96px;height:96px}}
+.seal-wrap{display:flex;align-items:flex-start;gap:13px}
+.inscribe{
+  writing-mode:vertical-rl;font-family:var(--serif);font-size:14px;
+  letter-spacing:.2em;color:var(--ink-3);line-height:1.5;
+  max-height:96px;overflow:hidden;
+}
 .id-card p{margin:0;font-size:14px;line-height:1.7;color:var(--ink-3)}
 .id-card p strong{display:block;font-weight:500;color:var(--ink-2);font-size:14px}
 
 /* ===== 搜索 ===== */
 .search{
   display:flex;align-items:center;gap:10px;
-  max-width:600px;padding:2px 0 8px;
-  border-bottom:2px solid var(--ink);
+  max-width:600px;padding:2px 0 9px;position:relative;
+  border-bottom:1.5px solid var(--ink);
+}
+.search::after{
+  content:"";position:absolute;left:0;right:0;bottom:-6px;
+  height:1px;background:var(--mark);opacity:.5;
 }
 .search .mag{flex:none;width:18px;height:18px;color:var(--ink-2)}
 .search input{
@@ -151,13 +179,12 @@ h1 em{font-style:normal;background-image:linear-gradient(var(--mark),var(--mark)
 }
 .eng:hover{color:var(--ink)}
 .eng[aria-pressed="true"]{color:var(--mark-ink);background:var(--mark)}
-html.night .eng[aria-pressed="true"]{color:#16191C}
 .go{
   flex:none;width:38px;height:38px;display:grid;place-items:center;
   border:1px solid var(--line);background:none;color:var(--ink);cursor:pointer;
   border-radius:50%;transition:background .2s,border-color .2s,color .2s;
 }
-.go:hover{background:var(--mark);border-color:var(--mark);color:#16191C}
+.go:hover{background:var(--mark);border-color:var(--mark);color:var(--mark-ink)}
 .go svg{width:15px;height:15px}
 .search-hint{margin:10px 0 0;font-size:14px;color:var(--ink-3)}
 .search-hint b{font-weight:500;color:var(--ink)}
@@ -174,13 +201,14 @@ html.night .eng[aria-pressed="true"]{color:#16191C}
 .main-col{min-width:0}
 
 /* ===== 区块标题 ===== */
-.sec{padding:34px 0 10px;border-top:1px solid var(--line)}
+.sec{padding:34px 0 10px;border-top:1px solid var(--line);position:relative}
+.sec::before{content:"";position:absolute;top:-1px;left:0;width:30px;height:2px;background:var(--mark)}
 .sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:18px}
 .sec-head h2{
   font-family:var(--serif);font-weight:600;font-size:19px;
   letter-spacing:.06em;margin:0;color:var(--ink);
 }
-.sec-head .dot{width:6px;height:6px;background:var(--ink);transform:translateY(-3px)}
+.sec-head .dot{width:5px;height:5px;background:var(--mark);transform:translateY(-3px)}
 .sec-head .aside{margin-left:auto;font-size:14px;color:var(--ink-3);font-weight:300}
 
 /* ===== 入口网格 ===== */
@@ -199,10 +227,10 @@ html.night .eng[aria-pressed="true"]{color:#16191C}
 .link .name{
   display:inline-block;font-size:15px;font-weight:500;line-height:1.5;
   background-image:linear-gradient(var(--mark),var(--mark));
-  background-repeat:no-repeat;background-size:0% 40%;background-position:0 86%;
-  transition:background-size .24s ease;
+  background-repeat:no-repeat;background-size:0% 1.5px;background-position:0 96%;
+  transition:background-size .26s ease;
 }
-.link:hover .name,.link:focus-visible .name{background-size:100% 40%}
+.link:hover .name,.link:focus-visible .name{background-size:100% 1.5px}
 .link .note{grid-column:2;display:block;font-size:14px;line-height:1.6;color:var(--ink-3);margin-top:1px}
 
 /* ===== 笔记 ===== */
@@ -213,16 +241,16 @@ html.night .eng[aria-pressed="true"]{color:#16191C}
   padding:16px 4px;background:none;border:0;text-align:left;color:inherit;
   font-family:var(--sans);cursor:pointer;
 }
-.note-head:hover .note-t{background-size:100% 40%}
+.note-head:hover .note-t{background-size:100% 1.5px}
 .note-t{
   font-family:var(--serif);font-size:16px;font-weight:600;line-height:1.5;
   background-image:linear-gradient(var(--mark),var(--mark));
-  background-repeat:no-repeat;background-size:0% 40%;background-position:0 86%;
-  transition:background-size .24s ease;
+  background-repeat:no-repeat;background-size:0% 1.5px;background-position:0 96%;
+  transition:background-size .26s ease;
 }
 .note-meta{margin-left:auto;font-size:14px;color:var(--ink-3);font-weight:300;display:flex;align-items:center;gap:8px}
 .note-meta .sign{width:9px;height:9px;border:1px solid var(--ink-3);position:relative;transition:border-color .2s}
-.note[open] .sign{border-color:var(--mark)}
+.note[data-open="1"] .sign{background:var(--mark);border-color:var(--mark)}
 .note-body{
   display:grid;grid-template-rows:0fr;
   transition:grid-template-rows .3s ease;
@@ -230,8 +258,9 @@ html.night .eng[aria-pressed="true"]{color:#16191C}
 .note[data-open="1"] .note-body{grid-template-rows:1fr}
 .note-body > div{overflow:hidden}
 .note-body p{
-  margin:0 0 16px;padding:0 4px;max-width:32em;
-  font-size:15px;line-height:1.95;color:var(--ink-2);font-weight:300;
+  margin:0 0 18px;padding:0 4px;max-width:31em;
+  font-family:var(--serif);font-size:15.5px;line-height:2.1;
+  letter-spacing:.01em;color:var(--ink-2);font-weight:400;
 }
 
 /* ===== 侧栏 ===== */
@@ -286,7 +315,15 @@ html.night .eng[aria-pressed="true"]{color:#16191C}
 footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px}
 .foot{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:baseline;font-size:14px;color:var(--ink-3)}
 .foot .f-brand{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:15px;letter-spacing:.05em}
-.foot .f-note{margin-left:auto}
+.stamp{
+  margin-left:auto;display:grid;grid-template-columns:repeat(2,1fr);
+  width:44px;padding:4px 2px;border:1.5px solid var(--seal);
+  border-radius:2px;transform:rotate(-3deg);opacity:.92;
+}
+.stamp span{
+  display:block;font-family:var(--serif);font-size:15px;line-height:1.3;
+  color:var(--seal);text-align:center;
+}
 
 /* ===== 回到顶部 ===== */
 .to-top{
@@ -310,7 +347,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px}
 <header class="top">
   <div class="wrap top-in">
     <a class="brand" href="#top">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12.5c3.4-4.4 6.7-6.4 9.5-6.4s6.1 2 9.5 6.4c-3.4 4.4-6.7 6.4-9.5 6.4s-6.1-2-9.5-6.4z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12.6" r="2.8" fill="currentColor"/><path d="M1.5 8.4L14 4.2" stroke="#D8F35C" stroke-width="4.2" stroke-linecap="round"/></svg>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12.5c3.4-4.4 6.7-6.4 9.5-6.4s6.1 2 9.5 6.4c-3.4 4.4-6.7 6.4-9.5 6.4s-6.1-2-9.5-6.4z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12.6" r="2.8" fill="currentColor"/><path d="M1.5 8.4L14 4.2" stroke="#B23A2E" stroke-width="4.2" stroke-linecap="round"/></svg>
       <span>样子懂了</span>
     </a>
     <nav class="nav" aria-label="主导航">
@@ -330,10 +367,10 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px}
     <div class="wrap hero-grid">
       <div>
         <h1>把看不懂的，<br>看出<em>个样子</em>来。</h1>
-        <p class="lede">这里放着<b>每天都要点开的那几个入口</b>、写了一半还没收尾的笔记，和一些暂时没想明白的问题。看到了就记一笔，想通了就划一道——这是我开始记笔记那天起就没改过的习惯。</p>
+        <p class="lede">这里放着<b>每天都要点开的那几个入口</b>、写了一半还没收尾的笔记，和一些暂时没想明白的问题。看到了就记一笔，想通了就批一笔——这是我开始记笔记那天起就没改过的习惯。</p>
         <form class="search" id="searchForm" role="search" autocomplete="off">
           <svg class="mag" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 15.5l5 5" stroke="currentColor" stroke-width="1.6"/></svg>
-          <input id="q" type="search" placeholder="搜点什么，回车就走" aria-label="搜索关键词">
+          <input id="q" type="search" placeholder="想问点什么，回车就走" aria-label="搜索关键词">
           <div class="engines" role="group" aria-label="选择搜索引擎">
             <button class="eng" type="button" data-eng="baidu" aria-pressed="true">百度</button>
             <button class="eng" type="button" data-eng="bing" aria-pressed="false">必应</button>
@@ -346,8 +383,11 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px}
         <p class="search-hint">按 <b>/</b> 聚焦，回车或点箭头出发；空着直接回车，就去引擎首页。</p>
       </div>
       <div class="id-card">
-        <img class="avatar" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/HzrlbWlRLoFVFtx6Eq4c9J4Fnq2" alt="样子懂了的标识：一只被荧光笔划过的眼睛" width="92" height="92">
-        <p><strong>样子懂了</strong>一个把复杂的事讲简单的人。<br>Asia/Shanghai · UTC+8</p>
+        <div class="seal-wrap">
+          <img class="avatar" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/LxZab8yvBomVmIxcV7QcICXvnfe" alt="样子懂了印章：朱红圆印中一只墨线眼睛" width="96" height="96">
+          <span class="inscribe">岁在丙午</span>
+        </div>
+        <p><strong>样子懂了</strong>把复杂的事讲简单的人。<br>Asia/Shanghai · UTC+8</p>
       </div>
     </div>
   </section>
@@ -645,7 +685,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px}
           <span class="dot"></span><h2>关于</h2>
         </div>
         <p class="lede" style="margin-bottom:14px">「样子懂了」不是一句结论，是一个过程：先看见个样子，再慢慢弄清楚它到底怎么回事。这个页面就是一个放这些东西的地方——入口、笔记、还没想明白的问题。</p>
-        <p class="lede">页面是静态的，没有后端，没有账号，也没有统计。</p>
+        <p class="lede">页面是静态的，没有后端，没有账号，也没有统计。你可以把上面每一个链接换成自己的，删掉不要的，它就是一个属于你的主页。</p>
       </section>
 
     </div>
@@ -658,7 +698,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px}
         <div class="clock-sub" id="today">正在取时间</div>
       </div>
       <div class="card">
-        <h3>天气</h3>
+        <h3>天时</h3>
         <div class="wx-row">
           <span class="wx-t" id="wxT">--<span>°</span></span>
           <span class="wx-d" id="wxD">潮州</span>
@@ -666,7 +706,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px}
         <div class="wx-meta" id="wxMeta">正在读天气…</div>
       </div>
       <div class="card">
-        <h3>一句</h3>
+        <h3>片语</h3>
         <p class="quote" id="quoteText">先看见个样子，再慢慢弄清楚它是怎么回事。</p>
         <div class="quote-from" id="quoteFrom">—— 样子懂了</div>
         <button class="quote-refresh" type="button" id="quoteBtn">
@@ -675,7 +715,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px}
         </button>
       </div>
       <div class="card">
-        <h3>找得到我</h3>
+        <h3>来信</h3>
         <div class="side-links">
           <a href="https://github.com" target="_blank" rel="noopener noreferrer">
             <span>GitHub</span>
@@ -698,7 +738,8 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px}
     <div class="wrap foot">
       <span class="f-brand">样子懂了</span>
       <span>写于 2026 年，用一页纸的耐心</span>
-      <span class="f-note"> ·无统计 · 无追踪</span>
+      <span>静态页面 · 无统计 · 无追踪</span>
+      <span class="stamp" aria-hidden="true"><span>样</span><span>子</span><span>懂</span><span>了</span></span>
     </div>
   </footer>
 </main>
