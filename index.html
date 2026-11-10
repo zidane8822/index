@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>样子懂了</title>
+<title>样子懂了 · 把看不懂的，看出个样子来</title>
 <meta name="description" content="样子懂了的个人主页：每天要用的入口、正在写的笔记，和一些还没想明白的问题。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F1E8D8'/%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%23B23A2E' stroke-width='3.4'/%3E%3Cpath d='M7 16c4-4.5 7.5-6 9-6s5 1.5 9 6c-4 4.5-7.5 6-9 6s-5-1.5-9-6z' fill='none' stroke='%231D1915' stroke-width='1.8'/%3E%3Ccircle cx='16' cy='16.6' r='2.4' fill='%231D1915'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://miaoda.feishu.cn">
@@ -71,14 +71,14 @@ body{
   mask-image:linear-gradient(100deg,#000 0,#000 55%,transparent 92%);
   transition:opacity .35s;
 }
-/* 朱丝栏（信笺竖线） */
-.hero::after{
-  content:"";
-  position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background-image:repeating-linear-gradient(90deg,transparent 0 47px,rgba(178,58,46,.13) 47px 48px);
-  -webkit-mask-image:linear-gradient(95deg,transparent 0,#000 20%,#000 50%,transparent 80%);
-  mask-image:linear-gradient(95deg,transparent 0,#000 20%,#000 50%,transparent 80%);
+/* 全页宣纸底纹 */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Nw9tbQa1OofLmlxJcl3cWjojnVd");
+  background-size:cover;background-position:center;
+  opacity:.14;mix-blend-mode:multiply;
 }
+html.night body::before{opacity:.05}
 /* 装裱内框 */
 body::after{
   content:"";position:fixed;inset:10px;z-index:58;pointer-events:none;
@@ -86,7 +86,7 @@ body::after{
 }
 @media (max-width:520px){body::after{inset:6px}}
 main,header,footer{position:relative;z-index:1}
-.wrap{width:calc(100% - 40px);max-width:1060px;margin:0 auto}
+.wrap{width:calc(100% - 40px);max-width:1180px;margin:0 auto}
 
 /* ===== 滚动进度 ===== */
 .progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--mark);z-index:60}
@@ -98,10 +98,10 @@ main,header,footer{position:relative;z-index:1}
   border-bottom:1px solid var(--line);
   transition:background .35s,border-color .35s;
 }
-.top-in{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px}
+.top-in{display:flex;align-items:center;justify-content:space-between;gap:12px;height:70px}
 .brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink)}
 .brand svg{flex:none;width:22px;height:22px}
-.brand span{font-family:var(--serif);font-weight:700;font-size:19px;letter-spacing:.04em}
+.brand span{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:.1em}
 .nav{display:flex;align-items:center;gap:2px}
 .nav a{
   text-decoration:none;color:var(--ink-2);font-size:14px;
@@ -120,37 +120,38 @@ main,header,footer{position:relative;z-index:1}
 .theme-btn svg{width:17px;height:17px}
 
 /* ===== Hero ===== */
-.hero{padding:52px 0 36px}
-.hero-grid{display:grid;grid-template-columns:1fr;gap:28px}
-@media (min-width:780px){
-  .hero{padding:76px 0 44px}
-  .hero-grid{grid-template-columns:minmax(0,1fr) 200px;gap:52px;align-items:start}
+.hero{padding:46px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:34px}
+@media (min-width:820px){
+  .hero{padding:100px 0 72px}
+  .hero-grid{grid-template-columns:minmax(0,1fr) 352px;gap:68px;align-items:start}
 }
+@media (min-width:1180px){.hero{padding:128px 0 96px}}
 h1{
   font-family:var(--serif);font-weight:700;
-  font-size:clamp(30px,6.8vw,58px);
-  line-height:1.28;
-  letter-spacing:.01em;
-  margin:0 0 20px;
+  font-size:clamp(34px,7vw,78px);
+  line-height:1.2;
+  letter-spacing:.02em;
+  margin:0 0 30px;
 }
 h1 em{font-style:normal;background-image:linear-gradient(var(--mark),var(--mark));background-repeat:no-repeat;background-size:100% 3px;background-position:0 94%;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:0 .08em}
 .lede{
-  max-width:33em;color:var(--ink-2);font-family:var(--serif);
-  font-size:16px;line-height:2;letter-spacing:.01em;
-  font-weight:400;margin:0 0 30px;
+  max-width:30em;color:var(--ink-2);font-family:var(--serif);
+  font-size:17px;line-height:2.06;letter-spacing:.02em;
+  font-weight:400;margin:0 0 36px;
 }
 .lede b{font-weight:500;color:var(--ink)}
 .id-card{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
-.avatar{
-  width:82px;height:82px;border-radius:2px;object-fit:cover;
-  background:transparent;transform:rotate(-1.5deg);
+.art{position:relative;border:1px solid var(--line-2);background:var(--paper-2);overflow:hidden}
+.art-img{display:block;width:100%;height:230px;object-fit:cover;object-position:center 26%}
+@media (min-width:820px){.art-img{height:436px}}
+.art .seal{
+  position:absolute;right:16px;bottom:16px;width:54px;height:54px;
+  object-fit:cover;transform:rotate(-6deg);opacity:.95;mix-blend-mode:multiply;
 }
-@media (min-width:780px){.avatar{width:96px;height:96px}}
-.seal-wrap{display:flex;align-items:flex-start;gap:13px}
-.inscribe{
-  writing-mode:vertical-rl;font-family:var(--serif);font-size:14px;
-  letter-spacing:.2em;color:var(--ink-3);line-height:1.5;
-  max-height:96px;overflow:hidden;
+.art-cap{
+  margin:12px 0 0;font-family:var(--serif);font-size:14px;
+  letter-spacing:.18em;color:var(--ink-3);text-align:right;
 }
 .id-card p{margin:0;font-size:14px;line-height:1.7;color:var(--ink-3)}
 .id-card p strong{display:block;font-weight:500;color:var(--ink-2);font-size:14px}
@@ -197,16 +198,16 @@ h1 em{font-style:normal;background-image:linear-gradient(var(--mark),var(--mark)
 
 /* ===== 主体两栏 ===== */
 .cols{display:grid;grid-template-columns:1fr;gap:0}
-@media (min-width:900px){.cols{grid-template-columns:minmax(0,1fr) 252px;column-gap:60px}}
+@media (min-width:900px){.cols{grid-template-columns:minmax(0,1fr) 276px;column-gap:72px}}
 .main-col{min-width:0}
 
 /* ===== 区块标题 ===== */
-.sec{padding:34px 0 10px;border-top:1px solid var(--line);position:relative}
+.sec{padding:48px 0 16px;border-top:1px solid var(--line);position:relative}
 .sec::before{content:"";position:absolute;top:-1px;left:0;width:30px;height:2px;background:var(--mark)}
-.sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:18px}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:22px}
 .sec-head h2{
-  font-family:var(--serif);font-weight:600;font-size:19px;
-  letter-spacing:.06em;margin:0;color:var(--ink);
+  font-family:var(--serif);font-weight:600;font-size:22px;
+  letter-spacing:.12em;margin:0;color:var(--ink);
 }
 .sec-head .dot{width:5px;height:5px;background:var(--mark);transform:translateY(-3px)}
 .sec-head .aside{margin-left:auto;font-size:14px;color:var(--ink-3);font-weight:300}
@@ -218,7 +219,7 @@ h1 em{font-style:normal;background-image:linear-gradient(var(--mark),var(--mark)
 .link{
   display:grid;grid-template-columns:22px minmax(0,1fr);gap:0 11px;
   align-items:start;text-decoration:none;color:inherit;
-  padding:12px 10px;border-radius:6px;
+  padding:15px 12px;border-radius:3px;
   transition:background .2s;
 }
 .link:hover,.link:focus-visible{background:var(--paper-2)}
@@ -312,9 +313,14 @@ h1 em{font-style:normal;background-image:linear-gradient(var(--mark),var(--mark)
 .side-links svg{width:14px;height:14px;flex:none;color:var(--ink-3)}
 
 /* ===== 页脚 ===== */
-footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px}
+footer{border-top:1px solid var(--line);margin-top:56px;padding:34px 0 48px}
 .foot{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:baseline;font-size:14px;color:var(--ink-3)}
 .foot .f-brand{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:15px;letter-spacing:.05em}
+.closing{padding:64px 0 8px;text-align:center}
+.closing p{
+  font-family:var(--serif);font-size:clamp(24px,4.2vw,42px);
+  letter-spacing:.28em;text-indent:.28em;margin:0;color:var(--ink);
+}
 .stamp{
   margin-left:auto;display:grid;grid-template-columns:repeat(2,1fr);
   width:44px;padding:4px 2px;border:1.5px solid var(--seal);
@@ -383,10 +389,11 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px}
         <p class="search-hint">按 <b>/</b> 聚焦，回车或点箭头出发；空着直接回车，就去引擎首页。</p>
       </div>
       <div class="id-card">
-        <div class="seal-wrap">
-          <img class="avatar" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/LxZab8yvBomVmIxcV7QcICXvnfe" alt="样子懂了印章：朱红圆印中一只墨线眼睛" width="96" height="96">
-          <span class="inscribe">岁在丙午</span>
+        <div class="art">
+          <img class="art-img" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/IK4HbOcQJot3bPxX2n9c6X7qnAe" alt="水墨山水：远山层叠，山脚一座小亭" width="880" height="1173">
+          <img class="seal" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/LxZab8yvBomVmIxcV7QcICXvnfe" alt="样子懂了朱印" width="54" height="54">
         </div>
+        <p class="art-cap">岁在丙午 · 冬</p>
         <p><strong>样子懂了</strong>把复杂的事讲简单的人。<br>Asia/Shanghai · UTC+8</p>
       </div>
     </div>
@@ -692,6 +699,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px}
 
     <!-- ===== 侧栏 ===== -->
     <aside class="side">
+      <noscript><div class="card" style="font-size:14px;color:var(--ink-2)">此刻、天时与片语需要浏览器允许运行脚本。</div></noscript>
       <div class="card">
         <h3>此刻</h3>
         <div class="clock"><span id="hour">--:--</span><small id="secs">:--</small></div>
@@ -734,6 +742,10 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px}
     </aside>
   </div>
 
+  <div class="wrap closing">
+    <p>懂了，就好。</p>
+  </div>
+
   <footer>
     <div class="wrap foot">
       <span class="f-brand">样子懂了</span>
@@ -752,220 +764,336 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px}
 (function(){
   "use strict";
 
-  /* ---- 主题 ---- */
-  var root = document.documentElement;
-  var themeBtn = document.getElementById("themeBtn");
-  var icon = document.getElementById("themeIcon");
-  var MOON = '<path d="M20 13.2A8.2 8.2 0 0 1 10.8 4a8.4 8.4 0 1 0 9.2 9.2z" fill="none" stroke="currentColor" stroke-width="1.6"/>';
-  var SUN  = '<circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4" stroke="currentColor" stroke-width="1.5"/>';
+  function $(id){ return document.getElementById(id); }
+  function safe(fn){ try{ fn(); }catch(e){} }
 
-  function applyTheme(night, save){
-    if(night){ root.classList.add("night"); } else { root.classList.remove("night"); }
-    themeBtn.setAttribute("aria-pressed", night ? "true" : "false");
-    themeBtn.setAttribute("aria-label", night ? "切换浅色模式" : "切换深色模式");
-    icon.innerHTML = night ? SUN : MOON;
-    if(save){ try{ localStorage.setItem("yzdl-theme", night ? "night" : "day"); }catch(e){} }
-  }
-  var saved = null;
-  try{ saved = localStorage.getItem("yzdl-theme"); }catch(e){}
-  var night = saved ? saved === "night" : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
-  applyTheme(night, false);
-  themeBtn.addEventListener("click", function(){
-    applyTheme(!root.classList.contains("night"), true);
-  });
-
-  /* ---- 搜索 ---- */
-  var ENG = {
-    baidu: {home:"https://www.baidu.com",   q:"https://www.baidu.com/s?wd="},
-    bing:  {home:"https://cn.bing.com",     q:"https://cn.bing.com/search?q="},
-    sogou: {home:"https://www.sogou.com",   q:"https://www.sogou.com/web?query="}
-  };
-  var currentEng = "baidu";
-  var input = document.getElementById("q");
-  var form = document.getElementById("searchForm");
-  var engBtns = Array.prototype.slice.call(document.querySelectorAll(".eng"));
-
-  function openLink(url){
-    var w = null;
-    try{ w = window.open(url, "_blank"); }catch(e){}
-    if(w){ try{ w.opener = null; }catch(e){} }
-    else { window.location.href = url; }
+  /* 通用请求：XHR + 超时 + 只回调一次 */
+  function req(url, ok, fail){
+    var done = false;
+    function end(fn, arg){ if(done){ return; } done = true; try{ fn(arg); }catch(e){} }
+    try{
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", url, true);
+      xhr.timeout = 9000;
+      xhr.onreadystatechange = function(){
+        if(xhr.readyState !== 4){ return; }
+        if(xhr.status >= 200 && xhr.status < 300){
+          var data = null;
+          try{ data = JSON.parse(xhr.responseText); }catch(e){ return end(fail); }
+          end(ok, data);
+        } else {
+          end(fail);
+        }
+      };
+      xhr.ontimeout = function(){ end(fail); };
+      xhr.onerror = function(){ end(fail); };
+      xhr.send();
+    }catch(e){ end(fail); }
   }
 
-  engBtns.forEach(function(btn){
+  /* ================= 1. 主题 ================= */
+  safe(function(){
+    var root = document.documentElement;
+    var btn = $("themeBtn");
+    var icon = $("themeIcon");
+    if(!btn || !icon){ return; }
+    var MOON = '<path d="M20 13.2A8.2 8.2 0 0 1 10.8 4a8.4 8.4 0 1 0 9.2 9.2z" fill="none" stroke="currentColor" stroke-width="1.6"/>';
+    var SUN  = '<circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4" stroke="currentColor" stroke-width="1.5"/>';
+
+    function apply(night, save){
+      if(night){ root.classList.add("night"); } else { root.classList.remove("night"); }
+      btn.setAttribute("aria-pressed", night ? "true" : "false");
+      btn.setAttribute("aria-label", night ? "切换浅色" : "切换深色");
+      icon.innerHTML = night ? SUN : MOON;
+      if(save){ try{ localStorage.setItem("yzdl-theme", night ? "night" : "day"); }catch(e){} }
+    }
+
+    var saved = null;
+    try{ saved = localStorage.getItem("yzdl-theme"); }catch(e){}
+    var night = false;
+    if(saved === "night" || saved === "day"){
+      night = saved === "night";
+    } else if(window.matchMedia){
+      night = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+    apply(night, false);
     btn.addEventListener("click", function(){
-      currentEng = btn.getAttribute("data-eng");
-      try{ localStorage.setItem("yzdl-eng", currentEng); }catch(e){}
-      engBtns.forEach(function(b){
-        b.setAttribute("aria-pressed", b === btn ? "true" : "false");
-      });
-      input.focus();
+      apply(!root.classList.contains("night"), true);
     });
   });
 
-  try{
-    var se = localStorage.getItem("yzdl-eng");
-    if(se && ENG[se]){
-      currentEng = se;
-      engBtns.forEach(function(b){
-        b.setAttribute("aria-pressed", b.getAttribute("data-eng") === se ? "true" : "false");
-      });
+  /* ================= 2. 时钟（不依赖任何外部资源） ================= */
+  safe(function(){
+    var hourEl = $("hour");
+    var secEl = $("secs");
+    var dayEl = $("today");
+    if(!hourEl && !dayEl){ return; }
+    var WEEK = ["周日","周一","周二","周三","周四","周五","周六"];
+    function pad(n){ return n < 10 ? "0" + n : "" + n; }
+    function tick(){
+      var now = new Date();
+      if(hourEl){ hourEl.textContent = pad(now.getHours()) + ":" + pad(now.getMinutes()); }
+      if(secEl){ secEl.textContent = ":" + pad(now.getSeconds()); }
+      if(dayEl){
+        dayEl.textContent = now.getFullYear() + " 年 " + (now.getMonth() + 1) + " 月 " +
+                            now.getDate() + " 日，" + WEEK[now.getDay()];
+      }
     }
-  }catch(e){}
-
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-    var eng = ENG[currentEng] || ENG.baidu;
-    var kw = input.value.trim();
-    openLink(kw ? eng.q + encodeURIComponent(kw) : eng.home);
+    tick();
+    setInterval(tick, 1000);
   });
 
-  document.addEventListener("keydown", function(e){
-    var t = e.target;
-    var typing = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable);
-    if(e.key === "/" && !typing){
+  /* ================= 3. 搜索 ================= */
+  safe(function(){
+    var ENG = {
+      baidu: {home:"https://www.baidu.com", q:"https://www.baidu.com/s?wd="},
+      bing:  {home:"https://cn.bing.com",   q:"https://cn.bing.com/search?q="},
+      sogou: {home:"https://www.sogou.com", q:"https://www.sogou.com/web?query="}
+    };
+    var input = $("q");
+    var form = $("searchForm");
+    if(!input || !form){ return; }
+    var current = "baidu";
+    var btns = Array.prototype.slice.call(document.querySelectorAll(".eng"));
+
+    function go(url){
+      var w = null;
+      try{ w = window.open(url, "_blank"); }catch(e){}
+      if(w){ try{ w.opener = null; }catch(e){} return; }
+      try{ window.location.href = url; }catch(e){}
+    }
+
+    function setEng(key){
+      current = ENG[key] ? key : "baidu";
+      for(var i = 0; i < btns.length; i++){
+        btns[i].setAttribute("aria-pressed", btns[i].getAttribute("data-eng") === current ? "true" : "false");
+      }
+    }
+
+    for(var i = 0; i < btns.length; i++){
+      (function(b){
+        b.addEventListener("click", function(){
+          setEng(b.getAttribute("data-eng"));
+          try{ localStorage.setItem("yzdl-eng", current); }catch(e){}
+          try{ input.focus(); }catch(e){}
+        });
+      })(btns[i]);
+    }
+
+    try{
+      var saved = localStorage.getItem("yzdl-eng");
+      if(saved && ENG[saved]){ setEng(saved); }
+    }catch(e){}
+
+    form.addEventListener("submit", function(e){
       e.preventDefault();
-      input.focus();
-      input.select();
+      var eng = ENG[current] || ENG.baidu;
+      var kw = input.value.replace(/^\s+|\s+$/g, "");
+      go(kw ? eng.q + encodeURIComponent(kw) : eng.home);
+    });
+
+    document.addEventListener("keydown", function(e){
+      var t = e.target;
+      var typing = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable);
+      if(e.key === "/" && !typing){
+        e.preventDefault();
+        try{ input.focus(); input.select(); }catch(err){}
+      }
+      if(e.key === "Escape" && t === input){ try{ input.blur(); }catch(err){} }
+    });
+  });
+
+  /* ================= 4. 笔记展开 ================= */
+  safe(function(){
+    var notes = Array.prototype.slice.call(document.querySelectorAll(".note"));
+    for(var i = 0; i < notes.length; i++){
+      (function(note){
+        var head = note.querySelector(".note-head");
+        if(!head){ return; }
+        head.addEventListener("click", function(){
+          var open = note.getAttribute("data-open") === "1";
+          note.setAttribute("data-open", open ? "0" : "1");
+          head.setAttribute("aria-expanded", open ? "false" : "true");
+        });
+      })(notes[i]);
     }
-    if(e.key === "Escape" && t === input){ input.blur(); }
   });
 
-  /* ---- 笔记展开 ---- */
-  var notes = Array.prototype.slice.call(document.querySelectorAll(".note"));
-  notes.forEach(function(note){
-    var head = note.querySelector(".note-head");
-    head.addEventListener("click", function(){
-      var open = note.getAttribute("data-open") === "1";
-      note.setAttribute("data-open", open ? "0" : "1");
-      head.setAttribute("aria-expanded", open ? "false" : "true");
+  /* ================= 5. 天气（三源依次尝试） ================= */
+  safe(function(){
+    var tEl = $("wxT");
+    var dEl = $("wxD");
+    var mEl = $("wxMeta");
+    if(!tEl || !mEl){ return; }
+
+    var CODES = {
+      0:"晴", 1:"大致晴", 2:"局部多云", 3:"阴",
+      45:"有雾", 48:"雾凇",
+      51:"毛毛雨", 53:"小雨", 55:"细雨",
+      56:"冻雨", 57:"冻雨",
+      61:"小雨", 63:"中雨", 65:"大雨",
+      66:"冻雨", 67:"冻雨",
+      71:"小雪", 73:"中雪", 75:"大雪", 77:"雪粒",
+      80:"阵雨", 81:"阵雨", 82:"强阵雨",
+      85:"阵雪", 86:"强阵雪",
+      95:"雷阵雨", 96:"雷暴冰雹", 99:"雷暴冰雹"
+    };
+
+    var sources = [
+      function(next, fail){
+        req("https://api.open-meteo.com/v1/forecast?latitude=23.657&longitude=116.622&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m&timezone=Asia%2FShanghai", function(d){
+          var c = d && d.current;
+          if(!c || typeof c.temperature_2m !== "number"){ return fail(); }
+          next({
+            t: c.temperature_2m,
+            feel: c.apparent_temperature,
+            hum: c.relative_humidity_2m,
+            wind: c.wind_speed_10m,
+            desc: CODES[c.weather_code] || "多云"
+          });
+        }, fail);
+      },
+      function(next, fail){
+        req("https://wttr.in/Chaozhou?format=j1", function(d){
+          var c = d && d.current_condition && d.current_condition[0];
+          if(!c){ return fail(); }
+          next({
+            t: Number(c.temp_C),
+            feel: Number(c.FeelsLikeC),
+            hum: Number(c.humidity),
+            wind: Number(c.windspeedKmph),
+            desc: (c.lang_zh && c.lang_zh[0] && c.lang_zh[0].value) ||
+                  (c.weatherDesc && c.weatherDesc[0] && c.weatherDesc[0].value) || "多云"
+          });
+        }, fail);
+      },
+      function(next, fail){
+        req("https://api.vvhan.com/api/weather?city=%E6%BD%A7%E5%B7%A1", function(d){
+          var w = d && d.data;
+          if(!w || !w.tem){ return fail(); }
+          next({
+            t: parseFloat(w.tem),
+            feel: parseFloat(w.tem2 || w.tem),
+            hum: parseFloat(w.humidity || 0),
+            wind: parseFloat(w.wind_speed || 0),
+            desc: w.wea || "多云"
+          });
+        }, fail);
+      }
+    ];
+
+    function render(d){
+      tEl.innerHTML = Math.round(d.t) + '<span>°</span>';
+      if(dEl){ dEl.textContent = d.desc || "潮州"; }
+      var bits = ['潮州'];
+      if(!isNaN(d.feel)){ bits.push('体感 <b>' + Math.round(d.feel) + '°</b>'); }
+      if(!isNaN(d.hum)){ bits.push('湿度 <b>' + Math.round(d.hum) + '%</b>'); }
+      if(!isNaN(d.wind)){ bits.push('风 <b>' + Math.round(d.wind) + ' km/h</b>'); }
+      mEl.innerHTML = bits.join(" · ");
+      mEl.style.cursor = "default";
+    }
+
+    function failAll(){
+      tEl.innerHTML = '--<span>°</span>';
+      if(dEl){ dEl.textContent = "潮州"; }
+      mEl.textContent = "天气没连上，点这里重试";
+      mEl.style.cursor = "pointer";
+    }
+
+    var running = false;
+    function load(){
+      if(running){ return; }
+      running = true;
+      mEl.style.cursor = "default";
+      mEl.textContent = "正在读天气…";
+      var idx = 0;
+      function step(){
+        if(idx >= sources.length){ running = false; return failAll(); }
+        var s = sources[idx++];
+        s(function(d){
+          running = false;
+          render(d);
+        }, function(){
+          setTimeout(step, 0);
+        });
+      }
+      step();
+    }
+
+    orderSafe();
+    function orderSafe(){ safe(load); }
+
+    mEl.addEventListener("click", function(){
+      if(mEl.style.cursor === "pointer"){ load(); }
     });
+
+    setInterval(function(){ safe(load); }, 15 * 60 * 1000);
   });
 
-  /* ---- 时间 ---- */
-  var hourEl = document.getElementById("hour");
-  var secEl  = document.getElementById("secs");
-  var todayEl = document.getElementById("today");
-  var WEEK = ["周日","周一","周二","周三","周四","周五","周六"];
+  /* ================= 6. 片语 ================= */
+  safe(function(){
+    var textEl = $("quoteText");
+    var fromEl = $("quoteFrom");
+    var btn = $("quoteBtn");
+    if(!textEl){ return; }
+    var FALLBACK = [
+      ["先看见个样子，再慢慢弄清楚它是怎么回事。", "样子懂了"],
+      ["懂了不是记住，是能用自己的话说一遍。", "样子懂了"],
+      ["把复杂的事讲简单，是最难的那一步。", "样子懂了"],
+      ["看懂了的人不急着解释，他知道从哪儿开始讲。", "样子懂了"],
+      ["说不清楚的，多半还没有真正想清楚。", "样子懂了"]
+    ];
 
-  function pad(n){ return n < 10 ? "0" + n : "" + n; }
+    function fallback(){
+      var p = FALLBACK[Math.floor(Math.random() * FALLBACK.length)];
+      textEl.textContent = "「" + p[0] + "」";
+      if(fromEl){ fromEl.textContent = "—— " + p[1]; }
+    }
 
-  function tick(){
-    var now = new Date();
-    hourEl.textContent = pad(now.getHours()) + ":" + pad(now.getMinutes());
-    secEl.textContent = ":" + pad(now.getSeconds());
-    todayEl.textContent = (now.getMonth() + 1) + " 月 " + now.getDate() + " 日，" + WEEK[now.getDay()];
-  }
-  tick();
-  setInterval(tick, 1000);
-
-  /* ---- 网络请求小工具（带超时） ---- */
-  function fetchJSON(url, ms){
-    return new Promise(function(resolve, reject){
-      var settled = false;
-      var timer = setTimeout(function(){
-        if(!settled){ settled = true; reject(new Error("timeout")); }
-      }, ms || 6000);
-      fetch(url, {cache:"no-store"}).then(function(r){
-        if(!r.ok) throw new Error("http " + r.status);
-        return r.json();
-      }).then(function(d){
-        if(settled) return;
-        settled = true; clearTimeout(timer); resolve(d);
-      }).catch(function(err){
-        if(settled) return;
-        settled = true; clearTimeout(timer); reject(err);
+    function load(){
+      if(btn){ btn.disabled = true; }
+      req("https://v1.hitokoto.cn/?encode=json&c=d&c=i&c=k", function(d){
+        if(d && d.hitokoto){
+          textEl.textContent = "「" + d.hitokoto + "」";
+          if(fromEl){ fromEl.textContent = "—— " + (d.from_who || d.from || "佚名"); }
+        } else {
+          fallback();
+        }
+        if(btn){ btn.disabled = false; }
+      }, function(){
+        fallback();
+        if(btn){ btn.disabled = false; }
       });
-    });
-  }
+    }
 
-  /* ---- 天气（open-meteo，免 key） ---- */
-  var wxT = document.getElementById("wxT");
-  var wxD = document.getElementById("wxD");
-  var wxMeta = document.getElementById("wxMeta");
-  var WXCODE = {
-    0:"晴", 1:"大致晴", 2:"局部多云", 3:"阴",
-    45:"有雾", 48:"雾凇",
-    51:"毛毛雨", 53:"小雨", 55:"细雨",
-    56:"冻雨", 57:"冻雨",
-    61:"小雨", 63:"中雨", 65:"大雨",
-    66:"冻雨", 67:"冻雨",
-    71:"小雪", 73:"中雪", 75:"大雪", 77:"雪粒",
-    80:"阵雨", 81:"阵雨", 82:"强阵雨",
-    85:"阵雪", 86:"强阵雪",
-    95:"雷阵雨", 96:"雷暴冰雹", 99:"雷暴冰雹"
-  };
-  var WX_URL = "https://api.open-meteo.com/v1/forecast?latitude=23.657&longitude=116.622&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m&timezone=Asia%2FShanghai";
-
-  function loadWeather(){
-    wxMeta.style.cursor = "default";
-    wxMeta.textContent = "正在读天气…";
-    fetchJSON(WX_URL, 7000).then(function(d){
-      var c = d && d.current;
-      if(!c || typeof c.temperature_2m !== "number") throw new Error("no data");
-      wxT.innerHTML = Math.round(c.temperature_2m) + '<span>°</span>';
-      wxD.textContent = WXCODE[c.weather_code] || "多云";
-      wxMeta.innerHTML = '潮州 · 体感 <b>' + Math.round(c.apparent_temperature) + '°</b>' +
-                         ' · 湿度 <b>' + Math.round(c.relative_humidity_2m) + '%</b>' +
-                         ' · 风 <b>' + Math.round(c.wind_speed_10m) + ' km/h</b>';
-    }).catch(function(){
-      wxT.innerHTML = '--<span>°</span>';
-      wxD.textContent = "潮州";
-      wxMeta.textContent = "没读到天气，点这里重试";
-      wxMeta.style.cursor = "pointer";
-    });
-  }
-  loadWeather();
-  setInterval(loadWeather, 15 * 60 * 1000);
-  wxMeta.addEventListener("click", function(){
-    if(wxMeta.style.cursor === "pointer"){ loadWeather(); }
+    load();
+    if(btn){ btn.addEventListener("click", function(){ safe(load); }); }
   });
 
-  /* ---- 一言 ---- */
-  var quoteText = document.getElementById("quoteText");
-  var quoteFrom = document.getElementById("quoteFrom");
-  var quoteBtn = document.getElementById("quoteBtn");
-  var QUOTE_FALLBACK = [
-    {t:"先看见个样子，再慢慢弄清楚它是怎么回事。", f:"样子懂了"},
-    {t:"懂了不是记住，是能用自己的话说一遍。", f:"样子懂了"},
-    {t:"把复杂的事讲简单，是最难的那一步。", f:"样子懂了"},
-    {t:"看懂了的人不急着解释，他知道从哪儿开始讲。", f:"样子懂了"}
-  ];
-
-  function loadQuote(){
-    if(quoteBtn) quoteBtn.disabled = true;
-    fetchJSON("https://v1.hitokoto.cn/?encode=json&c=d&c=i&c=k", 6000).then(function(d){
-      if(!d || !d.hitokoto) throw new Error("no quote");
-      quoteText.textContent = "「" + d.hitokoto + "」";
-      quoteFrom.textContent = "—— " + (d.from_who || d.from || "佚名");
-    }).catch(function(){
-      var f = QUOTE_FALLBACK[Math.floor(Math.random() * QUOTE_FALLBACK.length)];
-      quoteText.textContent = "「" + f.t + "」";
-      quoteFrom.textContent = "—— " + f.f;
-    }).then(function(){
-      if(quoteBtn) quoteBtn.disabled = false;
-    });
-  }
-  loadQuote();
-  if(quoteBtn){ quoteBtn.addEventListener("click", loadQuote); }
-
-  /* ---- 滚动进度 & 回到顶部 ---- */
-  var prog = document.getElementById("prog");
-  var toTop = document.getElementById("toTop");
-  function onScroll(){
-    var h = document.documentElement;
-    var max = h.scrollHeight - h.clientHeight;
-    var top = h.scrollTop || document.body.scrollTop;
-    prog.style.width = (max > 0 ? (top / max) * 100 : 0) + "%";
-    toTop.setAttribute("data-show", top > 360 ? "1" : "0");
-  }
-  window.addEventListener("scroll", onScroll, {passive:true});
-  window.addEventListener("resize", onScroll);
-  onScroll();
-  toTop.addEventListener("click", function(){
-    window.scrollTo({top:0, behavior:"smooth"});
+  /* ================= 7. 进度条与回到顶部 ================= */
+  safe(function(){
+    var prog = $("prog");
+    var toTop = $("toTop");
+    function onScroll(){
+      var h = document.documentElement;
+      var max = (h.scrollHeight || 0) - (h.clientHeight || 0);
+      var top = h.scrollTop || document.body.scrollTop || 0;
+      if(prog){ prog.style.width = (max > 0 ? (top / max) * 100 : 0) + "%"; }
+      if(toTop){ toTop.setAttribute("data-show", top > 360 ? "1" : "0"); }
+    }
+    window.addEventListener("scroll", onScroll, {passive:true});
+    window.addEventListener("resize", onScroll);
+    onScroll();
+    if(toTop){
+      toTop.addEventListener("click", function(){
+        try{ window.scrollTo({top:0, behavior:"smooth"}); }
+        catch(e){ window.scrollTo(0, 0); }
+      });
+    }
   });
+
 })();
 </script>
 </body>
 </html>
+<!-- （注：内容由AI生成） -->
